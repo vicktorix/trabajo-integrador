@@ -13,7 +13,7 @@ git clone git@github.com:vicktorix/trabajo-integrador.git
 ```
 
 ### Ramas
-La rama _branch_ principal es develop, es la rama por defecto.<br>
+La rama _branch_ principal es develope, es la rama por defecto.<br>
 Para cambiar de rama a una rama como ser _rama2_ se hace con<br>
 **[1]**
 ```
@@ -24,14 +24,14 @@ en el caso de que la rama no exista y se quiera crearla puede usarse también<br
 ```
 git branch rama2
 ```
-Cuando una rama (incluida la principal _develop_) ha tenido modificaciones por algun otro colaborador, será necesario traernos esos cambios.
+Cuando una rama (incluida la principal _develope_) ha tenido modificaciones por algun otro colaborador, será necesario traernos esos cambios.
 En el caso de que no estemos en esa rama primer deberemos ejecutar el comando (1) y luego hacer<br>
 **[3]**
 ```
 git pull
 ```
 
-Es conveniente trabajar sobre ramas ya que así no tocamos el código que esté en develop y que puede estar funcionando sin problemas
+Es conveniente trabajar sobre ramas ya que así no tocamos el código que esté en develope y que puede estar funcionando sin problemas
 
 ### Commits
 Primero hay que agregar los archivos modificados al stage con<br>
@@ -51,7 +51,7 @@ git push
 ```
 
 ### Pull Request
-Para unir el código de una branch como _rama2_ con el de _develop_ se debe hacer un _pull request_ 
+Para unir el código de una branch como _rama2_ con el de _develope_ se debe hacer un _pull request_ 
 Seleccionamos la opción de Pull Requests
 ![pull_request_1](https://user-images.githubusercontent.com/3047053/229970877-cb50a84b-603d-4d3d-aecd-4190fd8edf51.png)
 
