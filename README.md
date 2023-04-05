@@ -55,7 +55,7 @@ Para unir el código de una branch como _rama2_ con el de _develope_ se debe hac
 Seleccionamos la opción de Pull Requests
 ![pull_request_1](https://user-images.githubusercontent.com/3047053/229970877-cb50a84b-603d-4d3d-aecd-4190fd8edf51.png)
 
-Luego vamos a crear un nuevo Pull Request en el botón verde New Pull Request
+Luego vamos a crear un New Pull Request en el botón verde New Pull Request
 ![pull_request_2](https://user-images.githubusercontent.com/3047053/229971040-d2a5ba32-4810-4f69-9cf9-f246a2fde369.png)
 
 Y finalmente seleccionamos que rama o _branch_ (compare) queremos comparar con develope (base)
