@@ -47,8 +47,9 @@ git commit -m "Un mensaje que indique que cambios se realizaron"
 Para que esos cambios estén disponibles en el repositorio remoto (Git Hub) es necesario hacer un push<br>
 **[6]**
 ```
-git push
+git push --set-upstream origin rama2
 ```
+donde a rama2 lo deberemos reemplazar con el nombre de la rama que hayamos creado
 
 ### Pull Request
 Para unir el código de una branch como _rama2_ con el de _develope_ se debe hacer un _pull request_ 
