@@ -5,21 +5,28 @@ import java.util.List;
 
 public class Casa {
     private final int idCasa;
-    private final String nombre;
-    private final ArrayList<Estudiante> listaEstudiantes = new ArrayList();
+    public final String nombre;
+    private final ArrayList<Estudiante> listaEstudiantes;
 
     public Casa(int idCasa, String nombre) {
+        listaEstudiantes = new ArrayList<>();
         this.idCasa = idCasa;
         this.nombre = nombre;
     }
 
-    public boolean agregarEstudiante(Estudiante e) {
-        if (listaEstudiantes.contains(e)) {
-            return false;
-        } else {
-            listaEstudiantes.add(e);
-            return true;
+    public void agregarEstudiante(Estudiante estudiante) {
+        if (listaEstudiantes.contains(estudiante)) {
+            return;
         }
+        listaEstudiantes.add(estudiante);
+    }
+
+    public int getIdCasa() {
+        return idCasa;
+    }
+
+    public String getNombre() {
+        return nombre;
     }
 
     public int getCantidadEstudiantes() {
@@ -38,28 +45,32 @@ public class Casa {
         return cantidadEstudiantesPorGenero(Estudiante.GENERO_NO_BINARIO);
     }
 
+    public List<Estudiante> getEstudiantes() {
+        return listaEstudiantes;
+    }
+
     public List<Estudiante> getEstudiantesNoHumanos() {
         List<Estudiante> listaEstudiantesNoHumanos = new ArrayList<>();
-        for(Estudiante e: listaEstudiantes) {
-            if (!e.esHumano()) {
-                listaEstudiantesNoHumanos.add(e);
+        for(Estudiante estudiante: listaEstudiantes) {
+            if (!estudiante.esHumano()) {
+                listaEstudiantesNoHumanos.add(estudiante);
             }
         }
         return listaEstudiantesNoHumanos;
     }
 
     public void listadoEstudiantesHumanos() {
-        for(Estudiante e: listaEstudiantes) {
-            if (e.getEspecie().equalsIgnoreCase(Estudiante.ESPECIE_HUMANO)) {
-                System.out.println(e);
+        for(Estudiante estudiante: listaEstudiantes) {
+            if (estudiante.esHumano()) {
+                System.out.println(estudiante);
             }
         }
     }
 
     private int cantidadEstudiantesPorGenero(char genero){
         int cantidad = 0;
-        for(Estudiante e: listaEstudiantes){
-            if (e.getGenero() == genero) {
+        for(Estudiante estudiante: listaEstudiantes){
+            if (estudiante.getGenero() == genero) {
                 cantidad ++;
             }
         }

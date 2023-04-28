@@ -16,11 +16,7 @@ public class ProcesadorArchivoCsv {
     private final String CHARSET = "UTF-8";
 
     private final String nombreArchivo;
-    private boolean debugmode = false;
-
-    public ProcesadorArchivoCsv(String nombreArchivo) {
-        this.nombreArchivo = nombreArchivo;
-    }
+    private final boolean debugmode;
 
     public ProcesadorArchivoCsv(String nombreArchivo, boolean debugmode) {
         this.nombreArchivo = nombreArchivo;
@@ -32,11 +28,8 @@ public class ProcesadorArchivoCsv {
         Path f = Paths.get(nombreArchivo);
 
         if (Files.exists(f) && Files.isReadable(f)) {
-
             try (Scanner miEscaner = new Scanner(f, CHARSET)) {
-
                 int contadorLineas = 1;
-
                 while (miEscaner.hasNextLine()) {
                     String linea = miEscaner.nextLine();
                     if (contadorLineas > 1) {
@@ -56,16 +49,14 @@ public class ProcesadorArchivoCsv {
                 ex.printStackTrace();
                 System.exit(-1);
             }
-        }
-        else {
+        } else {
             System.out.println("Error: El archivo no existe.");
         }
         return lista;
-
     }
 
     public List<Estudiante> procesarArchivoConValidacion(){
-        List<Estudiante> lista = new ArrayList<>();
+        ArrayList<Estudiante> lista = new ArrayList<>();
         Path f = Paths.get(nombreArchivo);
         String regex = "[0-9]+,[a-zA-Z ().-]+,[a-zA-Z]*,[a-zA-Z0-9 |()-]*,[a-zA-Z ]+,[a-zA-Z ()/-]*,[a-zA-Z ()|-]*";
         Pattern pattern = Pattern.compile(regex);
@@ -88,8 +79,7 @@ public class ProcesadorArchivoCsv {
                             Estudiante e = Estudiante.parseStringArray(datos);
                             lista.add(e);
                         }
-                    }
-                    else {
+                    } else {
                         if (debugmode) {
                             System.out.println("Línea inválida: " + contadorLineas + " | " + linea);
                         }
@@ -103,18 +93,15 @@ public class ProcesadorArchivoCsv {
 
             }
             catch(IOException ex) {
-                ex.printStackTrace();
+                System.err.println(ex.getMessage());
                 System.exit(-1);
             }
 
-        }
-        else {
+        } else {
             System.err.println("Error: El archivo no existe.");
         }
         return lista;
-
     }
-
 
     private String[] separarLinea(String linea) {
         if (!linea.equals("") && !linea.equals("\n")) {
@@ -122,6 +109,5 @@ public class ProcesadorArchivoCsv {
         }
 
         return new String[0];
-
     }
 }

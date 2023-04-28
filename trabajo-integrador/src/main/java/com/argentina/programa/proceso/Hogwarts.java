@@ -2,7 +2,10 @@ package com.argentina.programa.proceso;
 
 import com.argentina.programa.modelos.Casa;
 import com.argentina.programa.modelos.Estudiante;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Hogwarts {
@@ -19,14 +22,18 @@ public class Hogwarts {
     public void agregarEstudiante(Estudiante e) {
         if (casas.containsKey(e.getNombreCasa())) {
             casas.get(e.getNombreCasa()).agregarEstudiante(e);
-        }
-        else
+        } else {
             throw new RuntimeException("Error: El nombre de la casa no existe.");
+        }
 
     }
 
     public Casa getCasa(String nombre){
         return casas.get(nombre);
+    }
+
+    public List<Casa> getCasas() {
+        return new ArrayList<>(casas.values());
     }
 
 }
